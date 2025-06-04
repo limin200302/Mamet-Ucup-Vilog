@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>MametUcupStore - Top Up Mobile Legends</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('https://wallpapercrafter.com/th8001/600900-Mobile-Legends-Selena-Abyssal-Witch-4K.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      min-height: 100vh;
+      padding-bottom: 40px;
+    }
+    .logo {
+      width: 60px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      border-radius: 50%;
+      box-shadow: 0 0 8px gold;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0,0,0,0.6);
+      position: relative;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+      color: #FFD700;
+    }
+    #userInfo {
+      font-size: 0.9em;
+      margin-top: 10px;
+      color: #ccc;
+    }
+    main {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      background-color: rgba(0,0,0,0.6);
+      border-radius: 10px;
+    }
+    h2 {
+      text-align: center;
+      color: #FFD700;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background-color: rgba(255,255,255,0.1);
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    li:hover, li.selected {
+      background-color: #FFD700;
+      color: black;
+      font-weight: bold;
+    }
+    .form-section {
+      margin-top: 20px;
+      display: none;
+    }
+    .form-section.active {
+      display: block;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: none;
+      font-size: 1em;
+    }
+    input:focus, select:focus {
+      outline: none;
+      border: 2px solid #FFD700;
+      background-color: rgba(255,255,255,0.9);
+      color: black;
+    }
+    .order-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #25D366;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .order-btn:hover {
+      background-color: #1DA851;
+    }
+    .note {
+      margin-top: 30px;
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 215, 0, 0.05));
+      padding: 20px;
+      border-radius: 12px;
+      border: 2px solid #FFD700;
+      color: #fff8dc;
+      text-align: center;
+      font-size: 0.95em;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+      user-select: none;
+    }
+    .note h3 {
+      margin-top: 0;
+      color: #FFD700;
+      font-weight: bold;
+      text-shadow: 0 0 6px #FFD700;
+    }
+    .note ol {
+      margin: 0;
+      padding-left: 0;
+      list-style-position: inside;
+    }
+    .history {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+    .history h3 {
+      margin-top: 0;
+      color: #FFD700;
+    }
+    .history-item {
+      margin-bottom: 10px;
+      font-size: 0.95em;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <header>
+      <img src="https://i.ibb.co/NnYrPjB/chibi-logo.png" alt="Logo" class="logo" />
+      <h1>Mamet Ucup Store</h1>
+      <div id="userInfo">Silahkan Pilih Orderanmu</div>
+    </header>
+
+    <main>
+      <h2>List Diamond Mobile Legends Vilog</h2>
+      <ul id="diamondList">
+        <li><span>55 Diamond</span><span>Rp 14.000</span></li>
+        <li><span>110 Diamond</span><span>Rp 27.000</span></li>
+        <li><span>165 Diamond</span><span>Rp 40.000</span></li>
+        <li><span>275 Diamond</span><span>Rp 65.000</span></li>
+        <li><span>565 Diamond</span><span>Rp 125.000</span></li>
+        <li><span>1.155 Diamond</span><span>Rp 240.000</span></li>
+        <li><span>1.765 Diamond</span><span>Rp 360.000</span></li>
+        <li><span>2.975 Diamond</span><span>Rp 580.000</span></li>
+        <li><span>6.000 Diamond</span><span>Rp 1.170.000</span></li>
+        <li><span>Weekly Diamond Pass</span><span>Rp 25.000</span></li>
+        <li><span>Epic Monthly Bundle</span><span>Rp 65.000</span></li>
+        <li><span>Elite Bundle</span><span>Rp 14.000</span></li>
+      </ul>
+
+      <div class="form-section" id="checkoutForm">
+        <label for="loginType">Login Akun</label>
+        <input type="text" id="loginType" placeholder="Contoh: Facebook, Moonton" />
+        <label for="rank">Rank</label>
+        <input type="text" id="rank" placeholder="Contoh: Epic, Legend, GM" />
+        <label for="paymentMethod">Metode Pembayaran</label>
+        <select id="paymentMethod">
+          <option value="" disabled selected>Pilih metode pembayaran</option>
+          <option value="Dana">Dana</option>
+          <option value="OVO">OVO</option>
+          <option value="GoPay">GoPay</option>
+          <option value="QRIS">QRIS</option>
+          <option value="BCA">BCA</option>
+          <option value="SeaBank">SeaBank</option>
+          <option value="Lainnya">Lainnya</option>
+        </select>
+        <button class="order-btn" onclick="buatPesanan()">Pesan Sekarang</button>
+      </div>
+
+      <div class="note">
+        <h3>Note / Perhatian :</h3>
+        <ol>
+          <li>Akun baru order wajib play rank 1x</li>
+          <li>Request play classic kena charge +5k</li>
+          <li>Bisa request bukti top up</li>
+          <li>Legal bersertifikat Google Play</li>
+          <li>Jika sebelumnya sudah top up, maka tidak perlu play Rank atau Classic lagi</li>
+        </ol>
+      </div>
+
+      <div class="history" id="orderHistory">
+        <h3>Riwayat Order</h3>
+        <div id="historyList">Belum ada order.</div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const listItems = document.querySelectorAll("#diamondList li");
+    const checkoutForm = document.getElementById("checkoutForm");
+    let selected = null;
+
+    listItems.forEach(item => {
+      item.addEventListener("click", () => {
+        listItems.forEach(li => li.classList.remove("selected"));
+        item.classList.add("selected");
+        selected = item.innerText;
+        checkoutForm.classList.add("active");
+        document.getElementById("userInfo").innerText = `Paket dipilih: ${selected}`;
+      });
+    });
+
+    function buatPesanan() {
+      const login = document.getElementById("loginType").value.trim();
+      const rank = document.getElementById("rank").value.trim();
+      const payment = document.getElementById("paymentMethod").value;
+
+      if (!selected || !login || !rank || !payment) {
+        alert("Mohon lengkapi semua data sebelum memesan.");
+        return;
+      }
+
+      const pesan = `Halo Admin Ganteng, saya ingin top up:\n\nPaket: ${selected}\nLogin Akun: ${login}\nRank: ${rank}\nMetode Pembayaran: ${payment}\n\nTerima kasih!`;
+      const waNumber = "6285713056206";
+      const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(pesan)}`;
+
+      const historyItem = `📦 ${selected} - Login: ${login}, Rank: ${rank}, Pembayaran: ${payment}`;
+      const history = JSON.parse(localStorage.getItem("orderHistory") || "[]");
+      history.unshift(historyItem);
+      localStorage.setItem("orderHistory", JSON.stringify(history));
+      tampilkanRiwayat();
+
+      const btn = document.querySelector(".order-btn");
+      btn.innerText = "Memproses...";
+      setTimeout(() => {
+        window.open(url, "_blank");
+        btn.innerText = "Pesan Sekarang";
+      }, 800);
+    }
+
+    function tampilkanRiwayat() {
+      const list = document.getElementById("historyList");
+      const history = JSON.parse(localStorage.getItem("orderHistory") || "[]");
+      if (history.length === 0) {
+        list.innerText = "Belum ada order.";
+        return;
+      }
+      list.innerHTML = "";
+      history.slice(0, 5).forEach(item => {
+        const div = document.createElement("div");
+        div.className = "history-item";
+        div.textContent = item;
+        list.appendChild(div);
+      });
+    }
+
+    tampilkanRiwayat();
+  </script>
+</body>
+</html>
