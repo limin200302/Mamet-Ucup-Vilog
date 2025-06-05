@@ -144,14 +144,52 @@
       padding: 20px;
       background-color: rgba(255, 255, 255, 0.1);
       border-radius: 10px;
+      position: relative;
     }
     .history h3 {
       margin-top: 0;
       color: #FFD700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     .history-item {
       margin-bottom: 10px;
-      font-size: 0.95em;
+      font-size: 70%;  /* ukuran teks riwayat order diubah ke 70% */
+      opacity: 0.85;
+    }
+    .ip-section {
+      margin-top: 30px;
+      padding: 15px 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      position: relative;
+    }
+    .ip-section h3 {
+      margin-top: 0;
+      color: #FFD700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .ip-list {
+      font-size: 70%;  /* ukuran teks ip visitor */
+      line-height: 1.4;
+      user-select: text;
+    }
+    .btn-clear {
+      background-color: #FF4C4C;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      padding: 4px 10px;
+      font-size: 0.9em;
+      transition: background-color 0.3s;
+    }
+    .btn-clear:hover {
+      background-color: #cc3a3a;
     }
   </style>
 </head>
@@ -211,13 +249,23 @@
       </div>
 
       <div class="history" id="orderHistory">
-        <h3>Riwayat Order</h3>
+        <h3>Riwayat Order
+          <button id="clearHistoryBtn" title="Hapus Riwayat Order">Hapus</button>
+        </h3>
         <div id="historyList">Belum ada order.</div>
+      </div>
+
+      <div class="ip-section" id="ipSection">
+        <h3>IP Pengunjung
+          <button id="clearIpBtn" class="btn-clear" title="Hapus Riwayat IP">Hapus</button>
+        </h3>
+        <div id="ipList" class="ip-list">Memuat IP...</div>
       </div>
     </main>
   </div>
 
   <script>
+    // Paket diamond list & form selection
     const listItems = document.querySelectorAll("#diamondList li");
     const checkoutForm = document.getElementById("checkoutForm");
     let selected = null;
@@ -232,6 +280,7 @@
       });
     });
 
+    // Order button click
     function buatPesanan() {
       const login = document.getElementById("loginType").value.trim();
       const rank = document.getElementById("rank").value.trim();
@@ -260,6 +309,7 @@
       }, 800);
     }
 
+    // Menampilkan riwayat order
     function tampilkanRiwayat() {
       const list = document.getElementById("historyList");
       const history = JSON.parse(localStorage.getItem("orderHistory") || "[]");
@@ -276,7 +326,57 @@
       });
     }
 
+    // Clear riwayat order
+    document.getElementById("clearHistoryBtn").addEventListener("click", () => {
+      if (confirm("Yakin ingin menghapus semua riwayat order?")) {
+        localStorage.removeItem("orderHistory");
+        tampilkanRiwayat();
+      }
+    });
+
+    // ----- IP Visitor ----- //
+
+    const ipListDiv = document.getElementById("ipList");
+
+    // Ambil IP via API
+    async function fetchIP() {
+      try {
+        const response = await fetch('https://api.ipify.org?format=json');
+        const data = await response.json();
+        let ips = JSON.parse(localStorage.getItem("visitorIPs") || "[]");
+        // Cek apakah IP sudah ada
+        if (!ips.includes(data.ip)) {
+          ips.unshift(data.ip);
+          if (ips.length > 10) ips.pop(); // simpan max 10 IP
+          localStorage.setItem("visitorIPs", JSON.stringify(ips));
+        }
+        tampilkanIP();
+      } catch (error) {
+        ipListDiv.textContent = "Gagal memuat IP.";
+      }
+    }
+
+    // Tampilkan list IP pengunjung
+    function tampilkanIP() {
+      let ips = JSON.parse(localStorage.getItem("visitorIPs") || "[]");
+      if (ips.length === 0) {
+        ipListDiv.textContent = "Belum ada IP pengunjung.";
+        return;
+      }
+      ipListDiv.innerHTML = ips.map(ip => `<div>${ip}</div>`).join("");
+    }
+
+    // Clear IP history
+    document.getElementById("clearIpBtn").addEventListener("click", () => {
+      if (confirm("Yakin ingin menghapus riwayat IP pengunjung?")) {
+        localStorage.removeItem("visitorIPs");
+        tampilkanIP();
+      }
+    });
+
+    // Jalankan saat page load
     tampilkanRiwayat();
+    fetchIP();
   </script>
 </body>
 </html>
