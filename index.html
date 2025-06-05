@@ -5,45 +5,26 @@
   <title>MametUcupStore - Top Up Mobile Legends</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
+      margin: 0; font-family: Arial, sans-serif;
       background: url('https://wallpapercrafter.com/th8001/600900-Mobile-Legends-Selena-Abyssal-Witch-4K.jpg') no-repeat center center fixed;
       background-size: cover;
       color: white;
     }
     .overlay {
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0,0,0,0.5);
       min-height: 100vh;
       padding-bottom: 40px;
-    }
-    .logo {
-      width: 60px;
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      border-radius: 50%;
-      box-shadow: 0 0 8px gold;
     }
     header {
       text-align: center;
       padding: 20px;
       background-color: rgba(0,0,0,0.6);
       position: relative;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2em;
       color: #FFD700;
     }
-    #userInfo {
-      font-size: 0.9em;
-      margin-top: 10px;
-      color: #ccc;
-    }
+    header h1 { margin: 0; font-size: 2em; }
     main {
       max-width: 600px;
       margin: auto;
@@ -62,44 +43,19 @@
     li {
       background-color: rgba(255,255,255,0.1);
       padding: 15px;
-      margin: 15px 0;
+      margin: 10px 0;
       border-radius: 8px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       cursor: pointer;
       transition: background-color 0.3s, color 0.3s;
+      user-select: none;
     }
-    li:hover, li.selected {
+    li.selected {
       background-color: #FFD700;
       color: black;
       font-weight: bold;
-    }
-    .form-section {
-      margin-top: 20px;
-      display: none;
-    }
-    .form-section.active {
-      display: block;
-    }
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border-radius: 5px;
-      border: none;
-      font-size: 1em;
-    }
-    input:focus, select:focus {
-      outline: none;
-      border: 2px solid #FFD700;
-      background-color: rgba(255,255,255,0.9);
-      color: black;
     }
     .order-btn {
       width: 100%;
@@ -112,6 +68,7 @@
       color: white;
       cursor: pointer;
       transition: background-color 0.3s;
+      margin-top: 15px;
     }
     .order-btn:hover {
       background-color: #1DA851;
@@ -136,71 +93,71 @@
     }
     .note ol {
       margin: 0;
-      padding-left: 0;
-      list-style-position: inside;
-    }
-    .history {
-      margin-top: 30px;
-      padding: 20px;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      position: relative;
-    }
-    .history h3 {
-      margin-top: 0;
-      color: #FFD700;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .history-item {
-      margin-bottom: 10px;
-      font-size: 70%;  /* ukuran teks riwayat order diubah ke 70% */
-      opacity: 0.85;
+      padding-left: 15px;
+      text-align: left;
     }
     .ip-section {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 70%;
+      color: #ddd;
+      user-select: none;
+    }
+    .footer-text {
+      margin-top: 15px;
+      font-size: 60%;
+      color: #ccc;
+      user-select: none;
+      text-align: center;
+    }
+    .history-section {
       margin-top: 30px;
-      padding: 15px 20px;
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(255,255,255,0.1);
       border-radius: 10px;
-      position: relative;
-    }
-    .ip-section h3 {
-      margin-top: 0;
-      color: #FFD700;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .ip-list {
-      font-size: 70%;  /* ukuran teks ip visitor */
-      line-height: 1.4;
+      padding: 15px;
+      font-size: 0.9em;
+      color: #eee;
       user-select: text;
     }
-    .btn-clear {
-      background-color: #FF4C4C;
-      border: none;
-      border-radius: 6px;
+    .history-section h3 {
+      color: #FFD700;
+      margin-top: 0;
+      text-align: center;
+      text-shadow: 0 0 5px #FFD700;
+    }
+    .history-list {
+      max-height: 150px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+    }
+    .history-list div {
+      border-bottom: 1px solid #555;
+      padding: 5px 0;
+    }
+    .clear-history-btn {
+      display: block;
+      margin: auto;
+      background-color: #cc3333;
       color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
-      padding: 4px 10px;
-      font-size: 0.9em;
       transition: background-color 0.3s;
+      user-select: none;
     }
-    .btn-clear:hover {
-      background-color: #cc3a3a;
+    .clear-history-btn:hover {
+      background-color: #aa0000;
     }
   </style>
 </head>
 <body>
   <div class="overlay">
     <header>
-      <img src="https://wallpapercrafter.com/th8001/627865-Dragon-Ball-Z-Dragon-Ball-anime-animal-wing-animal.jpg" alt="Logo" class="logo" />
       <h1>Mamet Ucup Store</h1>
-      <div id="userInfo">Silahkan Pilih Orderanmu</div>
+      <p>Silahkan Pilih Orderanmu</p>
     </header>
-
     <main>
       <h2>List Diamond Mobile Legends Vilog</h2>
       <ul id="diamondList">
@@ -214,28 +171,11 @@
         <li><span>2.975 Diamond</span><span>Rp 580.000</span></li>
         <li><span>6.000 Diamond</span><span>Rp 1.170.000</span></li>
         <li><span>Weekly Diamond Pass</span><span>Rp 25.000</span></li>
-        <li><span>Epic Monthly Bundle</span><span>Rp 65.000</span></li>
+        <li><span>Epic Bundle</span><span>Rp 65.000</span></li>
         <li><span>Elite Bundle</span><span>Rp 14.000</span></li>
       </ul>
 
-      <div class="form-section" id="checkoutForm">
-        <label for="loginType">Login Akun</label>
-        <input type="text" id="loginType" placeholder="Contoh: Facebook, Moonton" />
-        <label for="rank">Rank</label>
-        <input type="text" id="rank" placeholder="Contoh: Epic, Legend, GM" />
-        <label for="paymentMethod">Metode Pembayaran</label>
-        <select id="paymentMethod">
-          <option value="" disabled selected>Pilih metode pembayaran</option>
-          <option value="Dana">Dana</option>
-          <option value="OVO">OVO</option>
-          <option value="GoPay">GoPay</option>
-          <option value="QRIS">QRIS</option>
-          <option value="BCA">BCA</option>
-          <option value="SeaBank">SeaBank</option>
-          <option value="Lainnya">Lainnya</option>
-        </select>
-        <button class="order-btn" onclick="buatPesanan()">Pesan Sekarang</button>
-      </div>
+      <button class="order-btn" onclick="buatPesanan()">Pesan Sekarang</button>
 
       <div class="note">
         <h3>Note / Perhatian :</h3>
@@ -248,135 +188,107 @@
         </ol>
       </div>
 
-      <div class="history" id="orderHistory">
-        <h3>Riwayat Order
-          <button id="clearHistoryBtn" title="Hapus Riwayat Order">Hapus</button>
-        </h3>
-        <div id="historyList">Belum ada order.</div>
+      <div class="history-section">
+        <h3>Riwayat Order</h3>
+        <div class="history-list" id="historyList">
+          Belum ada riwayat order.
+        </div>
+        <button class="clear-history-btn" onclick="hapusRiwayat()">Hapus Riwayat Order</button>
       </div>
 
       <div class="ip-section" id="ipSection">
-        <h3>IP Pengunjung
-          <button id="clearIpBtn" class="btn-clear" title="Hapus Riwayat IP">Hapus</button>
-        </h3>
-        <div id="ipList" class="ip-list">Memuat IP...</div>
+        <div id="ipList">Memuat IP...</div>
       </div>
+
+      <div class="footer-text">©Ucup Mamet Store • Top up Vilog Aman, Cepat dan Terpercaya</div>
     </main>
   </div>
 
   <script>
-    // Paket diamond list & form selection
-    const listItems = document.querySelectorAll("#diamondList li");
-    const checkoutForm = document.getElementById("checkoutForm");
-    let selected = null;
+    const diamondList = document.getElementById('diamondList');
+    const items = diamondList.querySelectorAll('li');
+    const maxPilih = 4;
+    let selected = [];
 
-    listItems.forEach(item => {
-      item.addEventListener("click", () => {
-        listItems.forEach(li => li.classList.remove("selected"));
-        item.classList.add("selected");
-        selected = item.innerText;
-        checkoutForm.classList.add("active");
-        document.getElementById("userInfo").innerText = `Paket dipilih: ${selected}`;
+    items.forEach((li, index) => {
+      li.addEventListener('click', () => {
+        if (li.classList.contains('selected')) {
+          li.classList.remove('selected');
+          selected = selected.filter(i => i !== index);
+        } else {
+          if (selected.length < maxPilih) {
+            li.classList.add('selected');
+            selected.push(index);
+          } else {
+            alert('Maksimal pilih 4 paket.');
+          }
+        }
       });
     });
 
-    // Order button click
     function buatPesanan() {
-      const login = document.getElementById("loginType").value.trim();
-      const rank = document.getElementById("rank").value.trim();
-      const payment = document.getElementById("paymentMethod").value;
-
-      if (!selected || !login || !rank || !payment) {
-        alert("Mohon lengkapi semua data sebelum memesan.");
+      if (selected.length === 0) {
+        alert('Silakan pilih minimal 1 paket diamond.');
         return;
       }
+      const paketDipilih = selected.map(i => items[i].innerText).join(' | ');
+      const waMessage = encodeURIComponent(`Halo, saya mau pesan paket:\n${paketDipilih}\n\nMohon info lanjutnya ya.`);
+      const waUrl = `https://wa.me/6285713056206?text=${waMessage}`;
 
-      const pesan = `Halo Admin Ganteng, saya ingin top up:\n\nPaket: ${selected}\nLogin Akun: ${login}\nRank: ${rank}\nMetode Pembayaran: ${payment}\n\nTerima kasih!`;
-      const waNumber = "6285713056206";
-      const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(pesan)}`;
+      // Simpan riwayat ke localStorage
+      simpanRiwayat(paketDipilih);
 
-      const historyItem = `📦 ${selected} - Login: ${login}, Rank: ${rank}, Pembayaran: ${payment}`;
-      const history = JSON.parse(localStorage.getItem("orderHistory") || "[]");
-      history.unshift(historyItem);
-      localStorage.setItem("orderHistory", JSON.stringify(history));
-      tampilkanRiwayat();
-
-      const btn = document.querySelector(".order-btn");
-      btn.innerText = "Memproses...";
-      setTimeout(() => {
-        window.open(url, "_blank");
-        btn.innerText = "Pesan Sekarang";
-      }, 800);
+      window.open(waUrl, '_blank');
     }
 
-    // Menampilkan riwayat order
+    // Riwayat order di localStorage
+    const historyKey = 'mametucup_order_history';
+
+    function simpanRiwayat(pesan) {
+      let history = JSON.parse(localStorage.getItem(historyKey)) || [];
+      const waktu = new Date().toLocaleString('id-ID', { dateStyle: 'short', timeStyle: 'short' });
+      history.unshift(`${waktu}: ${pesan}`);
+      if (history.length > 20) history.pop(); // batasi maksimal 20 riwayat
+      localStorage.setItem(historyKey, JSON.stringify(history));
+      tampilkanRiwayat();
+    }
+
     function tampilkanRiwayat() {
-      const list = document.getElementById("historyList");
-      const history = JSON.parse(localStorage.getItem("orderHistory") || "[]");
+      const historyList = document.getElementById('historyList');
+      let history = JSON.parse(localStorage.getItem(historyKey)) || [];
       if (history.length === 0) {
-        list.innerText = "Belum ada order.";
+        historyList.textContent = 'Belum ada riwayat order.';
         return;
       }
-      list.innerHTML = "";
-      history.slice(0, 5).forEach(item => {
-        const div = document.createElement("div");
-        div.className = "history-item";
+      historyList.innerHTML = '';
+      history.forEach(item => {
+        const div = document.createElement('div');
         div.textContent = item;
-        list.appendChild(div);
+        historyList.appendChild(div);
       });
     }
 
-    // Clear riwayat order
-    document.getElementById("clearHistoryBtn").addEventListener("click", () => {
-      if (confirm("Yakin ingin menghapus semua riwayat order?")) {
-        localStorage.removeItem("orderHistory");
+    function hapusRiwayat() {
+      if (confirm('Yakin ingin menghapus seluruh riwayat order?')) {
+        localStorage.removeItem(historyKey);
         tampilkanRiwayat();
       }
-    });
+    }
 
-    // ----- IP Visitor ----- //
-
-    const ipListDiv = document.getElementById("ipList");
-
-    // Ambil IP via API
+    // Ambil IP Pengunjung (gunakan API publik)
     async function fetchIP() {
       try {
-        const response = await fetch('https://api.ipify.org?format=json');
-        const data = await response.json();
-        let ips = JSON.parse(localStorage.getItem("visitorIPs") || "[]");
-        // Cek apakah IP sudah ada
-        if (!ips.includes(data.ip)) {
-          ips.unshift(data.ip);
-          if (ips.length > 10) ips.pop(); // simpan max 10 IP
-          localStorage.setItem("visitorIPs", JSON.stringify(ips));
-        }
-        tampilkanIP();
-      } catch (error) {
-        ipListDiv.textContent = "Gagal memuat IP.";
+        const res = await fetch('https://api.ipify.org?format=json');
+        const data = await res.json();
+        document.getElementById('ipList').textContent = `IP Pengunjung: ${data.ip}`;
+      } catch {
+        document.getElementById('ipList').textContent = 'Tidak dapat memuat IP.';
       }
     }
 
-    // Tampilkan list IP pengunjung
-    function tampilkanIP() {
-      let ips = JSON.parse(localStorage.getItem("visitorIPs") || "[]");
-      if (ips.length === 0) {
-        ipListDiv.textContent = "Belum ada IP pengunjung.";
-        return;
-      }
-      ipListDiv.innerHTML = ips.map(ip => `<div>${ip}</div>`).join("");
-    }
-
-    // Clear IP history
-    document.getElementById("clearIpBtn").addEventListener("click", () => {
-      if (confirm("Yakin ingin menghapus riwayat IP pengunjung?")) {
-        localStorage.removeItem("visitorIPs");
-        tampilkanIP();
-      }
-    });
-
-    // Jalankan saat page load
-    tampilkanRiwayat();
+    // Init halaman
     fetchIP();
+    tampilkanRiwayat();
   </script>
 </body>
 </html>
