@@ -4,153 +4,7 @@
   <meta charset="UTF-8" />
   <title>MametUcupStore - Top Up Mobile Legends</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; font-family: Arial, sans-serif;
-      background: url('https://wallpapercrafter.com/th8001/600900-Mobile-Legends-Selena-Abyssal-Witch-4K.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
-    }
-    .overlay {
-      background-color: rgba(0,0,0,0.5);
-      min-height: 100vh;
-      padding-bottom: 40px;
-    }
-    header {
-      text-align: center;
-      padding: 20px;
-      background-color: rgba(0,0,0,0.6);
-      position: relative;
-      color: #FFD700;
-    }
-    header h1 { margin: 0; font-size: 2em; }
-    main {
-      max-width: 600px;
-      margin: auto;
-      padding: 20px;
-      background-color: rgba(0,0,0,0.6);
-      border-radius: 10px;
-    }
-    h2 {
-      text-align: center;
-      color: #FFD700;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      background-color: rgba(255,255,255,0.1);
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 8px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      transition: background-color 0.3s, color 0.3s;
-      user-select: none;
-    }
-    li.selected {
-      background-color: #FFD700;
-      color: black;
-      font-weight: bold;
-    }
-    .order-btn {
-      width: 100%;
-      padding: 12px;
-      background-color: #25D366;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.1em;
-      font-weight: bold;
-      color: white;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      margin-top: 15px;
-    }
-    .order-btn:hover {
-      background-color: #1DA851;
-    }
-    .note {
-      margin-top: 30px;
-      background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 215, 0, 0.05));
-      padding: 20px;
-      border-radius: 12px;
-      border: 2px solid #FFD700;
-      color: #fff8dc;
-      text-align: center;
-      font-size: 0.70em;
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-      user-select: none;
-    }
-    .note h3 {
-      margin-top: 0;
-      color: #FFD700;
-      font-weight: bold;
-      text-shadow: 0 0 6px #FFD700;
-    }
-    .note ol {
-      margin: 0;
-      padding-left: 15px;
-      text-align: left;
-    }
-    .ip-section {
-      margin-top: 40px;
-      text-align: center;
-      font-size: 70%;
-      color: #ddd;
-      user-select: none;
-    }
-    .footer-text {
-      margin-top: 15px;
-      font-size: 60%;
-      color: #ccc;
-      user-select: none;
-      text-align: center;
-    }
-    .history-section {
-      margin-top: 30px;
-      background-color: rgba(255,255,255,0.1);
-      border-radius: 10px;
-      padding: 15px;
-      font-size: 0.9em;
-      color: #eee;
-      user-select: text;
-    }
-    .history-section h3 {
-      color: #FFD700;
-      margin-top: 0;
-      text-align: center;
-      text-shadow: 0 0 5px #FFD700;
-    }
-    .history-list {
-      max-height: 150px;
-      overflow-y: auto;
-      margin-bottom: 10px;
-    }
-    .history-list div {
-      border-bottom: 1px solid #555;
-      padding: 5px 0;
-    }
-    .clear-history-btn {
-      display: block;
-      margin: auto;
-      background-color: #cc3333;
-      color: white;
-      border: none;
-      padding: 8px 15px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s;
-      user-select: none;
-    }
-    .clear-history-btn:hover {
-      background-color: #aa0000;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="overlay">
@@ -160,21 +14,7 @@
     </header>
     <main>
       <h2>List Diamond Mobile Legends Vilog</h2>
-      <ul id="diamondList">
-        <li><span>55 Diamond</span><span>Rp 14.000</span></li>
-        <li><span>110 Diamond</span><span>Rp 27.000</span></li>
-        <li><span>165 Diamond</span><span>Rp 40.000</span></li>
-        <li><span>275 Diamond</span><span>Rp 65.000</span></li>
-        <li><span>565 Diamond</span><span>Rp 125.000</span></li>
-        <li><span>1.155 Diamond</span><span>Rp 240.000</span></li>
-        <li><span>1.765 Diamond</span><span>Rp 360.000</span></li>
-        <li><span>2.975 Diamond</span><span>Rp 580.000</span></li>
-        <li><span>6.000 Diamond</span><span>Rp 1.170.000</span></li>
-        <li><span>Weekly Diamond Pass</span><span>Rp 25.000</span></li>
-        <li><span>Epic Bundle</span><span>Rp 65.000</span></li>
-        <li><span>Elite Bundle</span><span>Rp 14.000</span></li>
-      </ul>
-
+      <ul id="diamondList"></ul>
       <button class="order-btn" onclick="buatPesanan()">Pesan Sekarang</button>
 
       <div class="note">
@@ -190,9 +30,7 @@
 
       <div class="history-section">
         <h3>Riwayat Order</h3>
-        <div class="history-list" id="historyList">
-          Belum ada riwayat order.
-        </div>
+        <div class="history-list" id="historyList">Belum ada riwayat order.</div>
         <button class="clear-history-btn" onclick="hapusRiwayat()">Hapus Riwayat Order</button>
       </div>
 
@@ -203,92 +41,6 @@
       <div class="footer-text">©Ucup Mamet Store • Top up Vilog Aman, Cepat dan Terpercaya</div>
     </main>
   </div>
-
-  <script>
-    const diamondList = document.getElementById('diamondList');
-    const items = diamondList.querySelectorAll('li');
-    const maxPilih = 4;
-    let selected = [];
-
-    items.forEach((li, index) => {
-      li.addEventListener('click', () => {
-        if (li.classList.contains('selected')) {
-          li.classList.remove('selected');
-          selected = selected.filter(i => i !== index);
-        } else {
-          if (selected.length < maxPilih) {
-            li.classList.add('selected');
-            selected.push(index);
-          } else {
-            alert('Maksimal pilih 4 paket.');
-          }
-        }
-      });
-    });
-
-    function buatPesanan() {
-      if (selected.length === 0) {
-        alert('Silakan pilih minimal 1 paket diamond.');
-        return;
-      }
-      const paketDipilih = selected.map(i => items[i].innerText).join(' | ');
-      const waMessage = encodeURIComponent(`Halo, saya mau pesan paket:\n${paketDipilih}\n\nMohon info lanjutnya ya.`);
-      const waUrl = `https://wa.me/6285713056206?text=${waMessage}`;
-
-      // Simpan riwayat ke localStorage
-      simpanRiwayat(paketDipilih);
-
-      window.open(waUrl, '_blank');
-    }
-
-    // Riwayat order di localStorage
-    const historyKey = 'mametucup_order_history';
-
-    function simpanRiwayat(pesan) {
-      let history = JSON.parse(localStorage.getItem(historyKey)) || [];
-      const waktu = new Date().toLocaleString('id-ID', { dateStyle: 'short', timeStyle: 'short' });
-      history.unshift(`${waktu}: ${pesan}`);
-      if (history.length > 20) history.pop(); // batasi maksimal 20 riwayat
-      localStorage.setItem(historyKey, JSON.stringify(history));
-      tampilkanRiwayat();
-    }
-
-    function tampilkanRiwayat() {
-      const historyList = document.getElementById('historyList');
-      let history = JSON.parse(localStorage.getItem(historyKey)) || [];
-      if (history.length === 0) {
-        historyList.textContent = 'Belum ada riwayat order.';
-        return;
-      }
-      historyList.innerHTML = '';
-      history.forEach(item => {
-        const div = document.createElement('div');
-        div.textContent = item;
-        historyList.appendChild(div);
-      });
-    }
-
-    function hapusRiwayat() {
-      if (confirm('Yakin ingin menghapus seluruh riwayat order?')) {
-        localStorage.removeItem(historyKey);
-        tampilkanRiwayat();
-      }
-    }
-
-    // Ambil IP Pengunjung (gunakan API publik)
-    async function fetchIP() {
-      try {
-        const res = await fetch('https://api.ipify.org?format=json');
-        const data = await res.json();
-        document.getElementById('ipList').textContent = `IP Pengunjung: ${data.ip}`;
-      } catch {
-        document.getElementById('ipList').textContent = 'Tidak dapat memuat IP.';
-      }
-    }
-
-    // Init halaman
-    fetchIP();
-    tampilkanRiwayat();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
