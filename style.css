@@ -1,0 +1,101 @@
+/* style.css */
+* { box-sizing: border-box; }
+body {
+  margin: 0; font-family: Arial, sans-serif;
+  background: url('https://wallpapercrafter.com/th8001/600900-Mobile-Legends-Selena-Abyssal-Witch-4K.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+.overlay {
+  background-color: rgba(0,0,0,0.5);
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(0,0,0,0.6);
+  color: #FFD700;
+}
+main {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: rgba(0,0,0,0.6);
+  border-radius: 10px;
+}
+h2 {
+  text-align: center;
+  color: #FFD700;
+}
+ul { list-style: none; padding: 0; }
+li {
+  background-color: rgba(255,255,255,0.1);
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.qty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  width: 100%;
+  justify-content: flex-end;
+}
+.qty button {
+  background-color: #FFD700;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+}
+.order-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #25D366;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  margin-top: 15px;
+}
+.order-btn:hover { background-color: #1DA851; }
+.note {
+  margin-top: 30px;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 215, 0, 0.05));
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid #FFD700;
+  color: #fff8dc;
+  text-align: center;
+  font-size: 0.70em;
+}
+.note h3 { color: #FFD700; }
+.history-section {
+  margin-top: 30px;
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 0.9em;
+  color: #eee;
+}
+.clear-history-btn {
+  display: block;
+  margin: auto;
+  background-color: #cc3333;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.footer-text, .ip-section { text-align: center; font-size: 70%; color: #ccc; margin-top: 15px; }
